@@ -1,0 +1,6 @@
+{
+    "python.linting.enabled": true,
+    "python.pythonPath": "/Users/alexiscarr/.local/share/virtualenvs/password-checkr-cli-3-j96dVW/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
+}
