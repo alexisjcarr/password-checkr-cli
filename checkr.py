@@ -11,9 +11,19 @@ def request_api_data(query_char):
     return res
 
 
+def get_password_leaks_count(hashes, hash_to_check):
+    hashes = (line.split(':') for line in hashes.text.splitlines())
+    
+    for h, count in hashes:
+        print(h, count)
+
+
 def pwnded_api_check(password):
     sha1hashword = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
-    return sha1hashword
+    first5_char, tail = sha1hashword[:5], sha1hashword[5:]
+    res = request_api_data(first5_char)
+    print(res)
+    return get_password_leaks_count(res, tail)
 
 
 print(pwnded_api_check("hi"))
